@@ -1,0 +1,470 @@
+OK, let us start. So I would like
+to mention that you allow the
+cheat sheet, which is longer than
+the first midterm. And I would like
+to mention that the topics here, which I'm
+going to cover on the midterm, I wrote
+them down, basically. So you probably
+should expect at least some questions on
+from these topics and this is basically
+what you have to know and so and one thing
+which is important is this change of
+coordinates and the matrix of linear
+transformation dimension rank and nullity and
+certainly nulity, rank nulity theorem
+about a matrix, you for certain will
+have a problem concerning diagonalization and
+when dot product orthogonal sets,
+orthogonal original basis, Gram-Schmidt, least square problems, QR decomposition. So there are
+two topics which I covered, there's
+about models and general
+inner product. And I'm not going
+to cover them in this midterm, but
+they go to final. And any other questions
+before? so you always ask me if
+there will be proof problems so there will
+be proof problems by promise to be very
+easy problems but still today I'm more
+concentrate on them than rather on
+calculations so my examples were mostly will be
+not all but I think computations is a
+sort of easier for you than proof problems
+so basically we are going to do the
+problems one by one. When I run out
+of them, probably the review
+session is over. You should remember
+what date is today, right? But I
+think you still trust me about the
+material we just covered. So let us
+start with this one. So P2 is, so
+we have here a vector space
+P2, which is a polynomials of
+degree at most two. This is three
+-dimensional space. Oops, I think there
+is a little typo here. Sorry, it
+should be p as well. OK, so this is what is called differential
+operator, which involves
+derivatives, multiplication by functions, addition,
+and all this. And the point is what it
+is linear operator, a linear
+transformation in P2. So as we know, P2 has the standard basis,
+1T, T squared. And the question is
+just to write down the matrix of T
+relative to the basis B. So this is the matrix M. And it also has a
+notation like this. T, brackets B, but I'm
+not going to use this notation. I'm just
+going to remind you that this is the notation
+we use for the matrix. So how we do it? So we have a system
+of coordinates given by one, T,
+and T squared. And so I have to
+compute a value of T on all these
+three vectors in the basis. So
+what is T of one? one, p double prime
+second derivative is zero, and the
+first derivative is zero, so it's
+just one, right? T of t, so it's going to
+be t squared times the second
+derivative of t. What is the second
+derivative of t? First derivative
+is one, second is zero, right? so this
+term is actually consoles plus T
+prime what is T prime is that's going
+to be 1 plus T so it is going to be
+1 plus T right and finally I should
+apply this transformation
+to T squared T squared times T
+squared double prime so what is t squared
+double prime, but let me finish. So t squared prime
+plus t squared. So this is 2 here
+for the first term is 2, but it's
+2. I multiply it back to t squared,
+so it is 2t squared plus 2t, right,
+plus t squared. It's going to be 3t squared plus 2t, correct? OK, so now how do
+we do the matrix? and so the first column I
+take the vector and it goes to itself
+so the first vector and coordinates are
+1 0 0 so for the second vector I have
+first plus second vector so this
+this is going to be like this right and
+for the last one I'm going to have
+0 because there is no constant term
+here, plus 2t, plus 3. So this is the end of the story. Any
+questions here? So what do you
+use here when you have a basis, v1, vn, which is basis b? So what you do, you
+take the matrix M to B, matrix whose columns
+are coordinates of the image of each
+of the basis vector, coordinates with
+respect to basis B. This is the general
+formula for this. Any questions? I consider this
+as a very easy problem, okay?
+You agree? Good. Let's go to the
+second problem. So this is M. Let
+me copy it again. Yeah, it's good. It's this M. I'm
+just going to ask the question
+about this M now. And I would like
+to ask if this M diagonalizable. It
+actually means that this linear transformation
+T is diagonalizable. And to answer
+this question, the first thing that
+you have to do is to compute
+eigenvalues. What can you say about
+this matrix? It is upper triangular,
+and therefore, eigenvalues are just
+entries on diagonal. So I have 1, but 1 goes with multiplicity 2. When? 3. So if I have
+three different values, the
+answer is easy. But if not, I have to
+work a little bit more, and I have to find.
+And so basically what I have to find, what
+is the key point, since I don't ask you
+really diagonalize this matrix, but just to
+determine if it is diagonalizable, you
+actually have to check what is the eigenspace for
+the eigenvalue one. And it must be two
+-dimensional, right? And if it is one
+-dimensional, then it is not
+diagonalizable. And if it is two-dimensional,
+then it is. So how I do that? I
+just take m minus i, because I'm talking
+about lambda equals 1, and this
+is going to be, sorry, this is 0, and
+here is 1. I'm sorry. And here I have
+2, and here we also have 2, because
+I subtract 1. Well, what would
+be the nullity and rank of this matrix? What do you think?
+Nullity and rank. What about
+pivots? How many pivot positions
+do I have here? Two, rank two, nullity one. What does it mean? That my eigenspace
+is one-dimensional. The Conclusion, diagonalizable or not? No. Good, also not
+difficult, right? OK. So this is something
+a little bit more involved. It's
+a so-called proof, and maybe it's a
+little bit hard. But I divide
+it into parts. Suppose I have
+a square matrix. So the first I would
+like to show, and I take its power, I can
+take a, a squared, etc. And I consider
+the powers, and I would like
+to show first that the column
+of the k plus first power is a
+subspace inside column space
+of a to the k. How we do it? Any ideas? Yeah, but why do you
+need equation? Do you really
+need equation? So what is the
+meaning of column A? This is one way.
+Another way? If you think about
+A as a linear transformation
+from Rn to Rn, there is another interpretation
+of column A. Did you remember
+about range of linear transformation? Right? What is range? Range of linear
+transformations is all these vectors which
+are presented as 8 applied to some
+other vector. And so So column A is
+actually range of A. And this is the space of all vectors of
+the form AV, for some V in Rn. Okay, so what is
+column A to the K? It's the same
+thing, range. A to the K is A, all the vectors
+which can be written as A to
+the K plus to V. Now, column A K plus one, the same thing. So what I'm saying is
+that every vector which can be
+written in this way can be also written
+in this way. Why? Because it is just AK of A of V, right? And A of V is in R. I use here that the
+matrix is square so it maps from the same space
+again and again. so clear this which is
+above is bigger right so what I use here I
+use here another way to look at what is the column
+I use interpretation of a as a linear
+transformation okay questions clear so and
+this is my second question suppose there are some
+matrices such that their power is zero they
+are called important. Some power is zero.
+And so what I'm claiming that if some
+big power of A is zero, when A has size n by n, then already nth power
+is zero. So if it is a square matrix
+of size two by two, and some power
+of A is zero, then A squared
+is already zero. Okay? How do we prove it? So we have, so
+first of all, if a to the n is 0, when column A
+couldn't be the whole rn. Who
+can tell me why? It is smaller. It is a smaller subspace
+inside rn. So if column A
+equals Rn, what can I say about this linear
+transformation? Is it onto, one-to-one? The range is
+the whole thing. Is it onto or one-to-one? Onto. But it's a
+square, right? You remember nullity
+plus rank is n. So if column A equals Rn, then A is invertible. Could the power of an invertible matrix be 0? If the matrix is
+invertible, any power of it is
+invertible, right? If A is invertible, A
+squared is invertible, A cube is invertible,
+et cetera, right? OK. And the
+same, what I'm going to say that if I have
+this condition here, that column A to
+the k plus 1 is always strictly
+smaller than column A. Smaller, that means
+that it is not equal. Why? Unless, unless A to
+the k is already 0. If there's a zero, then it's a zero,
+okay? Now, why? Suppose column
+A to the key equals column
+A to the key. When, look, A maps column A to the key to itself, and
+it is onto. And if it is not a
+space, I can apply it again and again. It
+is invertible here. Therefore, I can never get zero again, okay? Now, how can I use this condition to check this? So look, I start with
+n-dimensional space. Column A has dimension at most n minus 1, right? Because of this. For the same
+reason, dimension of column a squared is
+at most n minus 2. And when I come
+to dimension of column, a to
+the n is less or equal than
+0. So it's a 0. And that means that
+a to the n is 0. Okay, so here we use
+several things. We use the fact about
+dimensions. a dimension of a subspace which is
+not a whole space is strictly smaller each
+time dimension drops at least by one rank of
+matrix dimension is just a rank of matrix
+rank of matrix drops at most by one and starts
+with n and goes down until it is zero but
+it might be that even before n so if it's
+three by three matrix it could happen but
+a squared is zero but if you know that a to
+100 is 0, that means what? A cube is already
+0. OK? Make sense? Good. So this is another so
+-called proof problem. So suppose I have a matrix such
+that A squared is the identity matrix. OK? So there are two
+questions. The first should be very easy. but if
+lambda is an eigenvalue of a when lambda is
+equal plus or minus 1 who can tell me how
+to do this problem so suppose lambda is
+an eigenvalue when it comes with some
+eigenvector right so there is vector u not
+equal to 0 such with AU is lambda U
+by definition of an eigenvector. Now what is A
+squared of U? From one point of U is I of U. What is I of U? U. But from another
+point, A squared of U is A of
+lambda lambda u is lambda a of u is
+lambda squared u. So what we have? Lambda squared u is equal to u. When it could happen only if lambda squared is 1. So in general, therefore, lambda is plus
+or minus 1. Now we would like to
+see, we will, huh? Yeah, sorry, I, somebody has a question. Yeah. No, you, you,
+you're, you're just thinking aloud, right?
+Okay, of course. Let us do the
+second question. We would like to show that A is diagonalizable. And this is
+unclear, right? Because we only
+know that there are two ways
+for eigenvalues. So we can at most
+have two eigenspaces, OK? So here is
+maybe a little bit. So if I give such
+a problem on exam, I give you the hint,
+because it might be. There are several
+ways to do it. One important way.
+Suppose I have a vector v, which is
+not an eigenvector. So I can have a v plus v, and it is an eigenvector. If I get value
+1, let us check. So I do A, apply
+it to AV plus V, okay? This is A
+squared V, okay? A squared V
+plus AV, but A squared is I, so
+it is V plus IV. So this vector
+is multiplied, sorry, it
+remains as it is. Is it clear? Okay, good. Now, the
+only trouble is that AV plus V sometimes
+might be 0, right? I don't know. If
+I do this with any vector, some
+vectors are going to be 0. But what
+are these vectors? AV plus V0, what is it? That means that
+AV is minus V. Okay? So what does it
+mean? that v is eigenvector with
+eigenvalue negative 1, okay? So what we do,
+what's actually a, v plus v, it's just
+a plus i, right? So nullity of a plus 1 is eigenspace
+with eigenvalue minus 1 as we just
+showed here. The range is eigenspace with
+eigenvalue 1, because I just
+checked that the image is going to be
+multiplied by 1. Nullity is n. So dimension of
+eigenspace of 1 plus dimension of eigenspace
+of eigenvalue minus 1 is the
+whole thing, right? some of the
+dimension of eigen. From the rank
+knowledge theorem, we have the dimensions, sum of dimensions of
+eigen spaces is n. Any questions about this? Yeah, yeah, yeah. Wait, I
+applied for any V. The point is I
+take a linear transformation A plus
+I, and then the range of this transformation
+is exactly all vectors which
+have eigenvalue 1. the range, the image
+of the map. I start with vector, but if the
+range, right? I have a vector, and I make
+out of it eigenvector of an eigenvalue of 1
+by applying a plus i. OK? But sometimes it might
+go to 0. But when it goes to 0, this is
+exactly when we started with a vector with
+eigenvalue minus 1. Okay? So the range of
+this a plus y, of this linear
+transformation, is eigenspace
+with eigenvalue 1. And then null
+space, or kernel, is exactly eigenvalue with eigenspace minus 1. And their sum of
+this dimension by rank nullity theorem
+is exactly n. Okay, so what I said is
+just written here. Questions,
+more questions. So let us do
+something, if you don't have questions. So don't scare you away, probably if I
+give you such, that would be might
+be difficult. But if I actually ask you
+in steps, then it shouldn't be so
+difficult, right? right? But yeah, plus I. What is A? A is a map or transformation
+from Rn to Rn. And what is A plus I? It's the sum of two
+transformations. It's again a linear
+transformation. The same thing. You take matrix, you
+get another matrix. They are both linear
+transformations. So I can talk
+about nullity and rank of A plus A. And I just showed
+to you that the new space of A plus A is
+exactly eigenvectors of minus 1 with
+eigenvalue minus 1. Yes? I just wanted
+to ask, how did we come up with
+the idea to try? How, I don't know,
+it's how, because actually what is
+AV plus V, okay? It's actually you study A plus I and A minus what? I. I and A minus I are
+important because they're exactly how you try
+to find eigenvalues. That's how you come up
+with this idea, okay? Yeah. Okay, let's
+move, because I want to do
+something more. So these are
+something simple, something which is
+not very difficult. We want to find
+orthogonal basis in the Coulomb space,
+and we should use, yeah, so Gram-Schmidt, right? But let us
+look carefully. This is 3 by 3 matrix. If it was non
+-degenerate, then it is not interesting,
+right? Because the column space
+is the whole thing. But this one is, in fact, the rank of this matrix. If you add all the
+columns, it's going to be zero. There is linear
+dependence between columns. So the rank
+of A is actually 2. Is it clear? If I take sum of
+three columns, when it's going
+to be 0. So there is a linear
+dependence. You can also
+compute determinant, but you don't
+need it, right? So actually,
+therefore, I can take for two linearly
+dependent vectors. I don't need to
+work with all three, right? Is it clear
+what I'm doing? Okay. So I just apply this
+process once. So U1 is not changed. First vector
+remains as it is. For the second vector, so let's call
+this V1 and V2. For the second vector, I do projection, right, subtracted projection
+equals V2 minus V2 dot V1 or U1. it's just
+the same, divided by u1, u1, dot u1, dot
+u1, and multiply on u1. Okay, so let's do it. V2 is minus 1, 2, minus 1. okay who can tell
+me what is v2 dot u1 so basically it's
+a dot product of two uh these two
+vectors what is it minus three yeah i
+think it is minus three uh minus two minus two
+plus one minus three And what is U1, U1? It is 4 plus 1
+plus 1, right? 4 plus 1 plus 1, 6. So here I have three halves. One half. One half. It's minus, but
+there is one more minus, so
+it is positive. Right? So we're going to
+have three halves. And minus three halves, okay? And you can check
+whether it is orthogonal to
+the first vector. Okay? But what I'm
+trying to say, if I give you matrix,
+which is non -degenerate, yet you
+don't have to do that, right, in this
+particular case. Now, what I want
+to do, I want to do orthogonal projection
+of this vector on the column A, the
+matrix here. I'm just going to compute
+orthogonal projection. And for this, I
+need arthonormal basis. So I
+first start with orthogonal. I don't
+need arthonormal basis, sorry, just
+orthogonal basis. And here I do
+something. You see, I can take proportional
+vector, which would be easy. If I
+take instead 0, 1, minus 1, it's just
+easy to compute. Question, yeah? Yeah, because the rank is 2. Sorry? How come the rank is 2 and then I can count? Because as I
+explained, if you add all these three
+columns, you get 0. Add three columns. So these three
+vectors, three columns vectors, are
+linearly dependent. Okay. So for U2, I can
+rescale. It's actually a little bit
+easier just to use this vector, just
+for computation. They're still
+orthogonal, right? It's just multiple, just
+for easy computation. Okay, so now how
+we do projection? let us write
+down y hat so what you do
+we do y dot u1 divided by u1
+dot u1 times u1 plus y u2 divided by u2 dot u2
+u2 okay so the first y u1 is what y u1 is
+2 no y dot u1 is 2. 2 divided by u1, u1 we computed it's
+already 6, right? But for the
+second one, it is 0, right? So this
+is actually 0. So it just shows minus 1 third, minus 1 third. So this is a
+projection of y onto this column
+space, okay and there's a
+second question how to find the distance who can tell me how
+to find the distance yeah so this is the norm of now if I subtract I'm
+going to have minus yes minus one third minus one third minus 1 3rd yeah and
+you remember that for square root somebody's
+saying square roots of course for norm
+you take square roots of dot product so a
+square root of 1 3rd square plus 1 3rd
+square plus 1 3rd square It looks to me
+that we have 1 over 9 three
+times, so it is square root of
+1 third, right? Done. So reasonable
+problem, right? Okay. Yeah, question. Let me check how
+much time I have. Okay. So the next one,
+I would like to do list
+squares problem. Okay. Here we do one. So I would like to
+remind you how we do it. So we want to
+solve Ax equals b, but we can solve it
+only approximately right so if we
+do that what we do we multiply by
+a transposed and we instead solve
+in this linear system okay so first
+let us figure out what is a transposed
+times a think it is 14 in 6 plus 2, 8,
+8, 4 plus 1, 5. I think this is correct. So now I would
+like to multiply A transposed
+times this vector b. And in this case,
+it's going to be 3, 2, 1, 2, 1, 0
+times 1 minus 1, 1. Let's see what we get. So it is 2, 3, minus 2, plus 1, 4, 3, minus 2, plus
+1, 2, correct. And for the second one, it's going to be 1, okay. Wow. So I actually have to solve this system. Well, 14, 8, 8, 5 times x equals to 1. So very simple
+linear system. Let me just give
+you the answer. We didn't actually compute
+the answer, so we have to solve it.
+Okay, let us solve it. So what is the best way to solve it, actually? For example, we can take the inverse of
+this matrix. So how do we find the inverse of the matrix? It's just 1 over
+the determinant of the matrix times...
+1 over 6, right? 70 minus 64 times... 14 minus 8
+minus 8, right? And then I multiply
+it by 2, 1. And what I'm going
+to get, 10 minus 8 and 1 over 6,
+10 minus 8 is 2. Minus 16 plus 14,
+is it 2 again? Right, wait. Minus 2, minus 2, better. Minus 2. Minus
+16 plus 14. So the answer
+is going to be 1 over 1 third
+minus 1 third. Does it make any
+sense to you? Okay. So how
+to find error? What is least squares
+error who remembers yes yes so I take
+B and I have ax right so basically
+ax minus B or B minus X it doesn't matter
+and again I take the norm the distance
+right so what is ax minus B so B we
+know what is ax no oh no wait wait a I
+wrote a incorrectly a is this one so I
+have let me write it down ax is three two
+two one one zero times one third minus one
+third oh sorry oh my what I'm going to
+get one minus two thirds is going to
+be one third gain one third right? 2
+minus 1 third and again 1 third, right? I'm not
+mistaken, 1 third. So I take 1 minus 1,
+1, subtract 1 third, end up with 2 thirds,
+minus 2 thirds, 2, minus 1, is it
+2 thirds, right? And you just
+compute, it's norm. Well, guys, I don't know,
+I have more problems. If you want, I am
+going to post them, and you will contrive
+them as exercise, okay? So I am going
+to post them, and you will exercise. So I wish good

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Math 54 Cheat Sheet</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:monospace;font-size:12px;line-height:1.5;background:#fff;color:#111;padding:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.card{background:#fff;border:1px solid #ccc;border-radius:6px;padding:10px;break-inside:avoid}
+.card.wide{grid-column:span 2}
+.card-title{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#555;border-bottom:1px solid #ddd;padding-bottom:5px;margin-bottom:7px}
+.section{font-size:10px;font-weight:700;color:#888;margin:6px 0 2px;text-transform:uppercase;letter-spacing:.05em}
+.block{font-family:monospace;font-size:11px;background:#f5f5f5;border-radius:4px;padding:6px 8px;margin:4px 0;white-space:pre;overflow-x:auto}
+.tip{font-size:11px;color:#555;padding:2px 0;line-height:1.55}
+.thm{font-size:11px;border-left:3px solid #1d9e75;padding:4px 6px;margin:4px 0;background:#f0faf6;border-radius:0 4px 4px 0}
+.warn{font-size:11px;border-left:3px solid #ef9f27;padding:4px 6px;margin:4px 0;background:#fdf5e6;border-radius:0 4px 4px 0}
+.qr{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-top:4px}
+</style>
+</head>
+<body>
+<div style="font-size:14px;font-weight:700;margin-bottom:10px">Math 54 Final Cheat Sheet — Sources: Review1, Review2, ER Notes, Practice Final, LA Cheat Sheet</div>
+<div class="grid">
+
+<!-- QR FACTORIZATION -->
+<div class="card">
+<div class="card-title">1. QR Factorization</div>
+<div class="section">Algorithm</div>
+<div class="block">Given A = [v1 | v2]:
+u1 = v1
+u2 = v2 - (v2.u1 / u1.u1) * u1
+
+q1 = u1/||u1||,  q2 = u2/||u2||
+Q = [q1 | q2],   R = Q^T * A</div>
+
+<div class="section">Example (Review2.pdf p.3)</div>
+<div class="block">A = [1  1]   v1.v1=3, v2.v1=-1
+    [1 -1]
+    [1 -1]
+
+u2 = [-1;-1;-1] + (1/3)[1;1;1]
+   = [4/3; -2/3; -2/3]
+
+Q = [1/sqrt(3)    sqrt(2)/sqrt(3) ]
+    [1/sqrt(3)   -sqrt(2)/(2sqrt3)]
+    [1/sqrt(3)   -sqrt(2)/(2sqrt3)]
+
+R = Q^T * A = [sqrt(3)   -1/sqrt(3)   ]
+              [0          2sqrt(2)/sqrt(3)]</div>
+
+<div class="thm">Theorem: A = QR where Q has orthonormal cols, R is upper triangular with positive diagonal. Unique if A has lin. ind. columns.</div>
+<div class="warn">Trap: R = Q^T * A, NOT Q*A. Post-multiply by A.</div>
+<div class="tip"><b>Proj via Q:</b> If H = Col(U), U orthonormal cols → proj = U*U^T (same result as G-S route, much faster).</div>
+</div>
+
+<!-- SUPERPOSITION -->
+<div class="card">
+<div class="card-title">2. Superposition (ODE)</div>
+<div class="section">Principle</div>
+<div class="thm">If L[y]=0 has solutions y1,y2 and L[yp1]=f1, L[yp2]=f2, then y = c1*y1+c2*y2+yp1+yp2 solves L[y]=f1+f2.</div>
+
+<div class="section">Example (Review1.pdf p.3-5): y'' + 4y = 3cos(t) + t^2</div>
+<div class="block">Split RHS into two problems:
+
+L[y] = 3cos(t): guess A*cos(t)+B*sin(t)
+  Plug in: (4A-A)cos = 3cos → A=1, B=0
+  yp1 = cos(t)
+
+L[y] = t^2: guess At^2+Bt+C
+  2A + 4At^2+4Bt+4C = t^2
+  4A=1 → A=1/4, 4B=0, 2A+4C=0 → C=-1/8
+  yp2 = t^2/4 - 1/8
+
+General: y = c1*cos(2t)+c2*sin(2t)+cos(t)+t^2/4-1/8</div>
+
+<div class="warn">Resonance trap: if RHS matches hom solution, multiply guess by t^s where s = multiplicity of root.</div>
+
+<div class="section">Resonance example (Review1.pdf p.6-7)</div>
+<div class="block">y''+3y'+2y = e^(-t)
+Hom roots: r=-1,-2 → e^(-t) in hom!
+→ guess yp = A*t*e^(-t)
+Plug in → A=1
+yp = t*e^(-t)
+General: t*e^(-t) + c1*e^(-t) + c2*e^(-2t)</div>
+<div class="tip"><b>UndCoeff table:</b> eᵃᵗ→Aeᵃᵗ | cos/sin(βt)→Acos+Bsin | tⁿ→Aₙtⁿ+…+A₀ | products → multiply forms</div>
+</div>
+
+<!-- ODE IVP -->
+<div class="card">
+<div class="card-title">3. ODE IVP (2nd order linear)</div>
+<div class="section">Algorithm</div>
+<div class="block">1. Solve hom (char poly roots → y_hom)
+2. Find yp by undetermined coefficients
+3. y_gen = y_hom + yp
+4. Apply ICs → solve for c1, c2</div>
+
+<div class="section">Example (final54_19.pdf p.1): y''+4y=e^t, y(0)=1, y'(0)=2</div>
+<div class="block">Step 1: r^2+4=0 → r=±2i
+  y_hom = c1*cos(2t)+c2*sin(2t)
+
+Step 2: guess yp=A*e^t (e^t not in hom)
+  e^t + 4*A*e^t = e^t → 5A=1 → A=1/5
+  yp = e^t/5
+
+Step 3: y = c1cos(2t)+c2sin(2t)+e^t/5
+
+Step 4: y(0)=1 → c1 + 1/5 = 1 → c1 = 4/5
+  y' = -2c1*sin(2t)+2c2*cos(2t)+e^t/5
+  y'(0)=2 → 2c2 + 1/5 = 2 → c2 = 9/10
+
+ANSWER: y = (4/5)cos(2t) + (9/10)sin(2t) + e^t/5</div>
+
+<div class="thm">Char roots → solutions: real r1≠r2 → eʳ¹ᵗ,eʳ²ᵗ | repeated r → eʳᵗ,teʳᵗ | α±βi → eᵅᵗcos(βt), eᵅᵗsin(βt)</div>
+<div class="warn">Check ICs last, after full general solution. Differentiate yp correctly before plugging in.</div>
+<div class="tip"><b>Matrix system x'=Ax:</b> eigenvalues λ → eˡᵗv; complex α±βi → eᵅᵗ(cos(βt)Re(v)-sin(βt)Im(v))</div>
+</div>
+
+<!-- FOURIER -->
+<div class="card">
+<div class="card-title">4. Fourier Series</div>
+<div class="section">Formulas (period 2π)</div>
+<div class="block">f(x) = a0/2 + Σ[an*cos(nx) + bn*sin(nx)]
+
+a0 = (1/π)∫_{-π}^{π} f(x)dx
+an = (1/π)∫_{-π}^{π} f(x)cos(nx)dx
+bn = (1/π)∫_{-π}^{π} f(x)sin(nx)dx</div>
+
+<div class="section">Example (final54_19.pdf p.2, Review1.pdf p.15-16)</div>
+<div class="block">f(x) = {0 for -π≤x≤0; cos(x) for 0<x<π}
+
+a0 = (1/π)∫_0^π cos(x)dx = 0
+
+an = (1/π)∫_0^π cos(x)cos(nx)dx
+  = 0 unless n=1  (orthogonality)
+a1 = (1/π)∫_0^π cos^2(x)dx = 1/2
+
+bn = (1/π)∫_0^π cos(x)sin(nx)dx
+  use: sin(a)cos(b)=½sin(a+b)+½sin(a-b)
+  = 0 if n odd
+  = 2n/[π(n²-1)] if n even
+
+f(x) = (1/2)cos(x) + (2/π)Σ_{n=2,4,6...} [n/(n²-1)]sin(nx)</div>
+
+<div class="thm">Convergence: → f(x) if continuous; → [f(x⁺)+f(x⁻)]/2 at jumps; at ±π → average of endpoint values.</div>
+<div class="warn">Trap: Do NOT use f(±π) directly at endpoints — use average of limits.</div>
+<div class="tip"><b>Even f</b> → cosine series (bn=0 for all n). <b>Odd f</b> → sine series (an=0 for all n). Saves half the integrals.</div>
+<div class="tip"><b>Parseval:</b> (1/π)∫|f|²dx = a0²/2 + Σ(an²+bn²). Use to sum infinite series like Σ1/n⁴.</div>
+</div>
+
+<!-- LEAST SQUARES -->
+<div class="card wide">
+<div class="card-title">5. Least Squares</div>
+<div class="grid" style="gap:8px">
+<div>
+<div class="section">Core equation</div>
+<div class="block">Solve normal equations: A^T A x̂ = A^T b
+x̂ = (A^T A)^{-1} A^T b  (if A^T A invertible)
+Proj: Ax̂ = A(A^T A)^{-1} A^T b = proj_{Col A}(b)</div>
+
+<div class="section">Example (Review2.pdf p.6-7): fit y=β0+β1*x to (1,0),(2,1),(4,2),(5,3)</div>
+<div class="block">Set up A*β = b:
+A=[1 1;1 2;1 4;1 5],  b=[0;1;2;3]
+
+A^T A = [4  12]    A^T b = [6 ]
+        [12 46]            [25]
+
+Row reduce [A^T A | A^T b]:
+[4  12 | 6 ]  ~  [1 0 | -0.6]
+[12 46 | 25]     [0 1 |  0.7]
+
+β0 = -0.6,  β1 = 0.7
+ANSWER: y = -0.6 + 0.7x</div>
+</div>
+<div>
+<div class="section">Key theorems</div>
+<div class="thm">b - Ax̂ ⊥ Col(A): the residual is orthogonal to every column of A. This IS the normal equation A^T(b-Ax̂)=0.</div>
+<div class="thm">A^T A invertible ⟺ cols of A lin. ind. ⟺ Nul(A)={0}. (from final54_19.pdf Prob 5)</div>
+<div class="thm">Nul(A^T A) = Nul(A) and rank(A^T A) = rank(A). (from final54_19.pdf Prob 5)</div>
+
+<div class="section">Via QR (cleaner)</div>
+<div class="block">If A = QR then:  x̂ = R^{-1} Q^T b
+(avoids ill-conditioning of A^T A)</div>
+
+<div class="section">Projection matrix P</div>
+<div class="block">P = A(A^T A)^{-1} A^T
+  = U U^T  (if cols orthonormal)
+Properties: P^2=P, P^T=P
+Eigenvalues: only 0 and 1
+rank(P) = dim(Col A)</div>
+
+<div class="warn">Trap: If asked for T(p) where T is orthogonal projection, compute Ax̂ not x̂. The projection is the OUTPUT in original space.</div>
+<div class="tip"><b>Geometric:</b> x̂ minimizes ||Ax-b||². Think: drop a perpendicular from b to Col(A).</div>
+</div>
+</div>
+</div>
+
+<!-- BOTTOM QUICK REF -->
+<div class="card wide">
+<div class="card-title">Char poly roots → solutions (all cases)</div>
+<div class="qr">
+<div>
+<div class="section">Real distinct r1≠r2</div>
+<div class="block">Scalar ODE:
+c1*e^(r1*t)+c2*e^(r2*t)
+
+System:
+c1*e^(λ1*t)*v1+c2*e^(λ2*t)*v2</div>
+</div>
+<div>
+<div class="section">Repeated root r (mult 2)</div>
+<div class="block">Scalar ODE:
+(c1+c2*t)*e^(r*t)
+
+System (generalized ev u):
+c1*e^(r*t)*v + c2*e^(r*t)*(t*v+u)
+where (A-rI)u=v</div>
+</div>
+<div>
+<div class="section">Complex α±βi</div>
+<div class="block">Scalar ODE:
+e^(αt)(c1*cos(βt)+c2*sin(βt))
+
+System: let v=a+ib
+x1=e^(αt)(cos(βt)*a - sin(βt)*b)
+x2=e^(αt)(sin(βt)*a + cos(βt)*b)</div>
+</div>
+<div>
+<div class="section">Wronskian / linear indep</div>
+<div class="block">W[f,g](t) = |f  g |
+             |f' g'|
+W[f,g,h] = 3x3 det
+
+W(t0)≠0 at some t0
+→ linearly INDEPENDENT
+
+Key: W is either always 0
+or never 0 on interval.</div>
+</div>
+</div>
+</div>
+
+</div>
+</body>
+</html>
